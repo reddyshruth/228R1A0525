@@ -1,0 +1,344 @@
+/* ===================== GENERAL PAGE STYLING ===================== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  margin-top: 110px; /* increased to avoid overlap (dark-mode bar + navbar) */
+}
+
+/* 🌙 Dark Mode Styles */
+body.dark-mode {
+  background: #222;
+  color: #f1f1f1;
+}
+
+body.dark-mode nav {
+  background-color: #111;
+}
+
+body.dark-mode section {
+  background: #333;
+  color: #f1f1f1;
+  box-shadow: 0 6px 20px rgba(255,255,255,0.1);
+}
+
+body.dark-mode footer {
+  background-color: #111;
+  color: #ccc;
+}
+
+body.dark-mode h1,
+body.dark-mode h2 {
+  color: #FFD700;
+}
+
+/* ===================== DARK MODE BAR ===================== */
+.dark-mode-bar {
+  width: 100%;
+  background: #444;
+  padding: 10px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1001; /* above navbar */
+  border-radius: 0 0 10px 10px;
+}
+
+.dark-mode-bar button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dark-mode-bar button:hover {
+  color: #FFD700;
+}
+
+/* ===================== NAVBAR INTERACTIVE ===================== */
+nav {
+  background-color: #333;
+  padding: 15px;
+  text-align: right;
+  position: fixed;
+  top: 40px; /* shifted down so dark-mode bar is above */
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+  position: relative;
+  padding-bottom: 5px;
+  transition: 0.3s;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #FFD700;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===================== HEADINGS ===================== */
+h1, h2, h3 {
+  text-align: center;
+  margin-top: 30px;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #222;
+  animation: fadeInDown 1s ease forwards;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #444;
+  margin-top: 40px;
+  border-left: 5px solid #FFD700;
+  padding-left: 10px;
+  position: relative;
+  padding-bottom: 10px;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+/* === Different heading symbols === */
+h2.intro::before { content: '📘 '; }
+h2.learning-img::before { content: '🖼️ '; }
+h2.learning-video::before { content: '🎥 '; }
+h2.contact::before { content: '📩 '; }
+h2.about::before { content: 'ℹ️ '; }
+h2.feedback::before { content: '📝 '; }
+h2.useful-links::before { content: '🔗 '; }
+h2.interactivity::before { content: '⚡ '; }
+h2.coding-img::before { content: '💻 '; }     
+h2.teamwork-img::before { content: '🤝 '; }   
+h2.teamwork-business-img::before { content: '🤝🏢 '; } 
+
+/* Hover effect for icons */
+h2:hover::before {
+  transform: rotate(20deg);
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: #FFD700;
+  transition: width 0.4s ease;
+}
+
+h2:hover::after {
+  width: 50%;
+}
+
+/* ===================== PARAGRAPHS ===================== */
+p {
+  font-size: 1.1rem;
+  margin: 15px 20px;
+  text-align: justify;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
+}
+
+/* ===================== IMAGE & VIDEO HOVER ===================== */
+img, video {
+  display: block;
+  max-width: 80%;
+  margin: 20px auto;
+  border-radius: 10px;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+img {
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+video {
+  border: 3px solid #444;
+}
+
+img:hover, video:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
+}
+
+/* ===================== BUTTON & FORM ===================== */
+form {
+  background: #fff;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+input, textarea, button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: #FFD700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+  outline: none;
+}
+
+input[type="submit"], button {
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  background-color: #FFD700;
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover, button:hover {
+  color: #fff;
+  background-color: #FF8C00;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+}
+
+input[type="submit"]::after, button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.4s;
+}
+
+input[type="submit"]:hover::after, button:hover::after {
+  left: 0;
+}
+
+/* ===================== LISTS & LINKS ===================== */
+ul li a {
+  position: relative;
+  color: #444;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+ul li a::before {
+  content: '➡ ';
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+ul li a:hover {
+  color: #FF8C00;
+}
+
+ul li a:hover::before {
+  opacity: 1;
+}
+
+/* ===================== SECTIONS ===================== */
+section {
+  background: #fff;
+  margin: 30px auto;
+  padding: 25px;
+  max-width: 900px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.5s;
+  scroll-margin-top: 80px;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  background-color: #fffbe6;
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  transition: background-color 0.5s, transform 0.3s;
+}
+
+footer:hover {
+  background-color: #444;
+  transform: scale(1.02);
+}
+
+/* ===================== ANIMATIONS ===================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-50px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* ===================== GRADIENT BACKGROUND ===================== */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(120deg, #f0f0f0, #ffe680, #f0f0f0);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
